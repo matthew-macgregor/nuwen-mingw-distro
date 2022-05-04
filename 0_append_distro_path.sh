@@ -18,7 +18,7 @@ export C_INCLUDE_PATH=$X_DISTRO_INC
 export CPLUS_INCLUDE_PATH=$X_DISTRO_INC
 
 function untar_file {
-    tar --extract --directory=/c/temp/gcc --file=$*
+    tar --extract --overwrite --directory=/c/temp/gcc --file=$*
 }
 
 export X_MAKE_JOBS="-j$NUMBER_OF_PROCESSORS -O"

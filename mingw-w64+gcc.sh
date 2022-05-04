@@ -16,7 +16,7 @@ cd /c/temp/gcc
 
 # Build mingw-w64 and winpthreads.
 mv mingw-w64-v9.0.0 src
-mkdir build-mingw-w64 dest
+mkdir -p build-mingw-w64 dest
 cd build-mingw-w64
 
 ../src/configure --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-lib32 \
@@ -36,11 +36,11 @@ cd /c/temp/gcc
 rm -rf build-mingw-w64 src
 
 # Prepare to build gcc.
-mv gcc-11.2.0 src
-mv gmp-6.2.1 src/gmp
-mv mpfr-4.1.0 src/mpfr
-mv mpc-1.2.1 src/mpc
-mv isl-0.24 src/isl
+mv -f gcc-11.2.0 src
+mv -f gmp-6.2.1 src/gmp
+mv -f mpfr-4.1.0 src/mpfr
+mv -f mpc-1.2.1 src/mpc
+mv -f isl-0.24 src/isl
 
 # Prepare to build gcc - perform magic directory surgery.
 cp -r dest/x86_64-w64-mingw32/lib dest/x86_64-w64-mingw32/lib64
@@ -52,7 +52,7 @@ cp -r dest/x86_64-w64-mingw32/include src/gcc/winsup/mingw/include
 mkdir build
 cd build
 
-../src/configure --enable-languages=c,c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 \
+../src/configure --enable-languages=c,c++,fortran --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 \
 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/c/temp/gcc/dest --with-sysroot=/c/temp/gcc/dest \
 --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry \
 --enable-threads=posix --enable-libgomp --with-zstd=$X_DISTRO_ROOT --disable-bootstrap
