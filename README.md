@@ -1,5 +1,9 @@
 # MinGW Distro: [nuwen.net/mingw.html](https://nuwen.net/mingw.html)
 
+Update 5/5/2022:
+
+- More detailed instructions added by Matthew MacGregor. See [Readme detailed](./README_detailed.md).
+
 Here are the build scripts for my MinGW distro.
 
 You'll need to run them in MSYS2, which you can set up without an installer:
